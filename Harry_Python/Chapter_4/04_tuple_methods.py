@@ -3,3 +3,5 @@ print(a)
 
 no = a.count(56)
 print(no) # it will count how many times 56 is present in the tuple a
+
+print(len(a)) # it will give the length of the tuple a
