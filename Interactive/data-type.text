@@ -1,0 +1,34 @@
+Numeric
+1. int
+2.float
+3.complex(1+7C)
+
+String(quote)
+1.''
+2.""
+3.''' '''
+4.""" """
+
+Sequence
+1.list [it has index number like array]
+2.touple() 
+3.range()  for generate data
+
+Mapping
+1.dictionary/ JSON object/ JSON array
+2.set {} 
+  no key: value pair
+  no index number
+  unorderd data
+  unique data
+  *frozen set ^ same
+  
+Boolean
+1.true
+2.false
+
+
+None
+
+
+mutable(can be change) and immutable(can't change but create) 
