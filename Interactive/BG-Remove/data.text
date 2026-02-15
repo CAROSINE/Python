@@ -1,0 +1,8 @@
+Short project Background Removal
+
+package 
+-pillow
+-rembg 
+
+pip install pillow
+pip install rembg
