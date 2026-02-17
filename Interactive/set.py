@@ -1,0 +1,4 @@
+cities = {"Dhaka", "Chittagong", "Khulna", "Barishal"}
+                     # set has no index number. It is an unordered collection of items. It does not maintain the order of the elements. It is also important to note that sets do not allow duplicate elements. If we try to add an element that is already present in the set, it will not be added again. 
+cities.add("Sylhet") # add() is used to add an element to the set. It adds the element to the set if it is not already present.
+print(cities)        # in this way sylhet contineously change its position in the set because set is unordered collection of items. It does not maintain the order of the elements. It is also important to note that sets do not allow duplicate elements. If we try to add an element that is already present in the set, it will not be added again.
