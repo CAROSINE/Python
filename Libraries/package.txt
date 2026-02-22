@@ -1,0 +1,10 @@
+pip install markitdown
+pip install polars
+pip install gpt-pilot-core
+pip install smolagents
+pip install langextract
+pip install fastmcp
+pip install data_formulator
+pip install pydantic-ai
+pip install pyrefly
+pip install mostlyai
