@@ -15,7 +15,7 @@ from smolagents import CodeAgent, DuckDuckGoSearchTool, HfApiModel
 # -------------------------------------------------------
 # PART 1: সবচেয়ে সহজ Agent বানানো
 # -------------------------------------------------------
-
+ 
 # Model সেট করো (HuggingFace এর free model)
 model = HfApiModel(model_id="Qwen/Qwen2.5-Coder-32B-Instruct")
 

@@ -15,7 +15,7 @@ from pydantic_ai.models.openai import OpenAIModel
 from pydantic import BaseModel
 from typing import Optional
 import os
-
+ 
 # -------------------------------------------------------
 # PART 1: সহজ Agent - সরাসরি কথা বলা
 # -------------------------------------------------------

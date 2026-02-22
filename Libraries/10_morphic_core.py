@@ -14,7 +14,7 @@
 # ⚠️ Morphic মূলত একটা Next.js Web Application।
 # pip install করা হয় না — clone করে run করতে হয়।
 # তবে এর concept (AI Search + Answer) দেখাচ্ছি।
-
+ 
 print("=== Morphic কী? ===")
 print("Morphic = Open Source Perplexity AI Alternative")
 print("Web search করে + AI দিয়ে answer তৈরি করে")
