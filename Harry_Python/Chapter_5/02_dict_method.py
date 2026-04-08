@@ -14,3 +14,5 @@ print(marks.get("Rock")) # for get value of key , if key is not present then it 
 print(marks.get(0)) # for get value of key , if key is not present then it will return none
 
 # item , keys , values , update , get these are dictionary methods
+d = { } # empty dictionary
+print(type(d))
