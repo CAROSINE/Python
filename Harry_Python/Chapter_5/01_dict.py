@@ -4,3 +4,4 @@ marks={
         "Olivia":50
       }
 print(marks , type(marks))
+print(marks["Mahi"]) # for print individual value 
