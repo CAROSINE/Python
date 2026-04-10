@@ -1,8 +1,9 @@
-#print(1)
-#print(2)
-#print(3)
-#print(4)
-#print(5)  # output  will be 1,2,3,4,5
+'''
+print(1)
+print(2)
+print(3)print(4)
+print(5)  # output  will be 1,2,3,4,5
+'''
 
 # The same  task can don elike this 
 
