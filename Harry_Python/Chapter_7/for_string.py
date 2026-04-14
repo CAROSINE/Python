@@ -1,0 +1,1 @@
+for c in "Mahin": print(c)
