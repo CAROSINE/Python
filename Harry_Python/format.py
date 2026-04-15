@@ -29,4 +29,4 @@ fig1 = draw_instruction_format("Zero-Address Instruction Format", ["Opcode"], [3
 fig2 = draw_instruction_format("One-Address Instruction Format", ["Opcode", "Operand"], [1, 2])
 fig3 = draw_instruction_format("Two-Address Instruction Format", ["Opcode", "Operand1", "Operand2"], [1, 1, 1])
 
-plt.show()
+plt.show() 
