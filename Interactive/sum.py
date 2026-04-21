@@ -9,4 +9,4 @@ class summation:
         print(sum)
 
 obj = summation()   # object create
-obj.add()           # method call 
+obj.add()           # method call  
