@@ -5,4 +5,4 @@ goodDay("Mahin", "sunny")
 goodDay("Sajol", "rainy")
 
 # We can also use f-string for better readability
-# goodDay("Mahin", "sunny") will print "Good day Mahin! The weather is sunny."
+# goodDay("Mahin", "sunny") will print "Good day Mahin! The weather is sunny." 
