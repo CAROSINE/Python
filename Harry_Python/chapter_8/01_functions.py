@@ -9,4 +9,4 @@ def avg():
     print("The average is: ", average)
 
 avg()  # Function call
-print("Thx") # Function definition
+print("Thx") # Function definition 
