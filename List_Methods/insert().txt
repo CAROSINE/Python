@@ -1,0 +1,7 @@
+# Adds an item at the specific  index
+
+>>> my_list = [1, 2, 3]
+>>> my_list.insert(1,99)
+>>> my_list          
+
+# [1,99,2,3]

@@ -1,0 +1,7 @@
+Sorts the list in ascending order
+
+>>> my_list = [3,2,1]
+>>> my_list.pop( )
+>>> my_list          
+
+# [1,2]
