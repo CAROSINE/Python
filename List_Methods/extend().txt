@@ -1,0 +1,7 @@
+# Adds multiple items(from iterable) to the end
+
+>>> my_list = [1, 2, 3]
+>>> my_list.expand((4,5,6))
+>>> my_list          
+
+# [1,2,3,4,5,6]
