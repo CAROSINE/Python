@@ -4,4 +4,4 @@ Removers items from the list
 >>> my_list.clear( )
 >>> my_list          
 
-# []
+# [] 
