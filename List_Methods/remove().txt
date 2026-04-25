@@ -4,4 +4,4 @@ Removers the first occurrence of teh item
 >>> my_list.remove(2)
 >>> my_list          
 
-# [1,3,2]
+# [1,3,2] 
