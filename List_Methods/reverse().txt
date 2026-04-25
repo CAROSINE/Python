@@ -5,4 +5,4 @@ Removers the order of ther list
 >>> my_list          
 
 # [3,2,1]
-#output    1 # index of 2
+#output    1 # index of 2 
