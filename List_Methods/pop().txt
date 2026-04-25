@@ -4,4 +4,4 @@ Removers and returns the last item
 >>> my_list.pop( )
 >>> my_list          
 
-# [1,2]
+# [1,2] 
