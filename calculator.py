@@ -6,7 +6,7 @@ class Calculator:
         self.b = b
 
     def add(self):
-        return self.a + self.b
+        return self.a + self.b 
 
     def subtract(self):
         return self.a - self.b
