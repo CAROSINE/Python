@@ -23,9 +23,9 @@ def plot_chessboard(size=8):
     ax.grid(which="minor", color="black", linewidth=1)
 
     # Remove major tick marks
-    ax.tick_params(which='major', bottom=False, left=False)
+    ax.tick_params(which = 'major', bottom=False,  left=False)
 
     plt.title("Chessboard", fontsize=16, fontweight='bold')
     plt.show()
 
-plot_chessboard(8)
+plot_chessboard(8) 
