@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 def plot_chessboard( size = 8 ):
     # Generate checkerboard pattern
-    board = np.indices((size, size)).sum( axis=0 ) % 2
+    board = np.indices((size, size)).sum( axis = 0 ) % 2
 
     # Define chessboard colors
     cmap = plt.cm.colors.ListedColormap(["#f0d9b5", "#b58863"])
@@ -18,8 +18,8 @@ def plot_chessboard( size = 8 ):
     ax.set_yticklabels([str(size - i) for i in range(size)])
 
     # Draw grid lines
-    ax.set_xticks(np.arange(-0.5, size, 1), minor=True)
-    ax.set_yticks(np.arange(-0.5, size, 1), minor=True)
+    ax.set_xticks(np.arange(-0.5, size, 1), minor = True)
+    ax.set_yticks(np.arange(-0.5, size, 1), minor = True)
     ax.grid(which="minor", color="black", linewidth=1)
 
     # Remove major tick marks
