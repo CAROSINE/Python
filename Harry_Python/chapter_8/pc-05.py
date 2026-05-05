@@ -4,4 +4,4 @@ def pattern(n):
     print("*" * n)
     pattern(n-1) 
 
-pattern(5)
+pattern(5) 
