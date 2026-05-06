@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snake Water Gun Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0f0f0f;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Courier New', monospace;
+      color: #e0e0e0;
+    }
+
+    .game-wrap {
+      background: #1a1a1a;
+      border: 1px solid #2e2e2e;
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      max-width: 480px;
+      width: 100%;
+    }
+
+    .game-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 11px;
+      color: #f0f0f0;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+      line-height: 1.8;
+    }
+
+    .score-row {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #2e2e2e;
+    }
+
+    .score-box { text-align: center; }
+    .score-label { font-size: 10px; color: #666; margin-bottom: 4px; letter-spacing: 1px; }
+    .score-num { font-family: 'Press Start 2P', monospace; font-size: 20px; }
+    .score-num.you { color: #63c174; }
+    .score-num.draw { color: #888; }
+    .score-num.cpu { color: #e06c6c; }
+
+    .choices {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .choice-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid #2e2e2e;
+      background: #242424;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      font-size: 11px;
+      color: #888;
+      min-width: 88px;
+      font-family: 'Courier New', monospace;
+    }
+    .choice-btn:hover {
+      background: #2e2e2e;
+      border-color: #555;
+      transform: translateY(-2px);
+      color: #ccc;
+    }
+    .choice-btn:active { transform: scale(0.97); }
+    .choice-btn.selected {
+      border-color: #63c174;
+      background: #1a2e1e;
+      color: #63c174;
+    }
+
+    .choice-emoji { font-size: 36px; line-height: 1; }
+
+    .arena {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+      min-height: 110px;
+      background: #111;
+      border-radius: 12px;
+      padding: 1rem;
+    }
+
+    .fighter { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+    .fighter-label { font-size: 10px; color: #555; letter-spacing: 1px; }
+    .fighter-icon { font-size: 52px; transition: transform 0.3s ease; display: block; }
+    .vs-text {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 10px;
+      color: #444;
+    }
+
+    .result-msg {
+      text-align: center;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      line-height: 1.5;
+    }
+    .result-msg.win { background: #1a2e1e; color: #63c174; border: 1px solid #2e5c38; }
+    .result-msg.lose { background: #2e1a1a; color: #e06c6c; border: 1px solid #5c2e2e; }
+    .result-msg.draw { background: #222; color: #888; border: 1px solid #333; }
+    .result-msg.waiting { background: transparent; color: #555; border: none; font-size: 11px; }
+
+    .rule-row {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+    .rule-chip {
+      font-size: 10px;
+      color: #555;
+      padding: 3px 8px;
+      border-radius: 99px;
+      border: 1px solid #2a2a2a;
+    }
+
+    .cpu-thinking { animation: pulse 0.8s infinite alternate; }
+
+    @keyframes shake {
+      0%,100% { transform: translateX(0); }
+      20% { transform: translateX(-8px) rotate(-5deg); }
+      40% { transform: translateX(8px) rotate(5deg); }
+      60% { transform: translateX(-5px); }
+      80% { transform: translateX(5px); }
+    }
+    @keyframes pulse {
+      from { opacity: 0.4; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1.05); }
+    }
+
+    .shake { animation: shake 0.4s ease; }
+  </style>
+</head>
+<body>
+  <div class="game-wrap">
+    <div class="game-title">🐍 Snake · Water · Gun 🔫</div>
+
+    <div class="score-row">
+      <div class="score-box">
+        <div class="score-label">YOU</div>
+        <div class="score-num you" id="you-score">0</div>
+      </div>
+      <div class="score-box">
+        <div class="score-label">DRAW</div>
+        <div class="score-num draw" id="draw-score">0</div>
+      </div>
+      <div class="score-box">
+        <div class="score-label">CPU</div>
+        <div class="score-num cpu" id="cpu-score">0</div>
+      </div>
+    </div>
+
+    <div class="choices">
+      <button class="choice-btn" onclick="play('s')">
+        <span class="choice-emoji">🐍</span>Snake
+      </button>
+      <button class="choice-btn" onclick="play('w')">
+        <span class="choice-emoji">💧</span>Water
+      </button>
+      <button class="choice-btn" onclick="play('g')">
+        <span class="choice-emoji">🔫</span>Gun
+      </button>
+    </div>
+
+    <div class="arena">
+      <div class="fighter">
+        <span class="fighter-label">YOU</span>
+        <span class="fighter-icon" id="you-icon">❓</span>
+      </div>
+      <div class="vs-text">VS</div>
+      <div class="fighter">
+        <span class="fighter-label">CPU</span>
+        <span class="fighter-icon" id="cpu-icon">❓</span>
+      </div>
+    </div>
+
+    <div class="result-msg waiting" id="result-msg">উপরে তোমার choice বেছে নাও!</div>
+
+    <div class="rule-row">
+      <span class="rule-chip">🐍 Snake drinks 💧</span>
+      <span class="rule-chip">💧 Water douses 🔫</span>
+      <span class="rule-chip">🔫 Gun shoots 🐍</span>
+    </div>
+  </div>
+
+  <script>
+    /*
+     * Snake Water Gun Game
+     * Logic:
+     *   s = snake (1)
+     *   w = water (-1)
+     *   g = gun (0)
+     *
+     * Snake drinks Water  → Snake wins
+     * Water douses Gun    → Water wins
+     * Gun shoots Snake    → Gun wins
+     */
+
+    const icons = { s: '🐍', w: '💧', g: '🔫' };
+    const names = { s: 'Snake', w: 'Water', g: 'Gun' };
+    const opts  = ['s', 'w', 'g'];
+    const scores = { you: 0, cpu: 0, draw: 0 };
+
+    function getResult(you, cpu) {
+      if (you === cpu) return 'draw';
+      if (
+        (you === 's' && cpu === 'w') ||
+        (you === 'w' && cpu === 'g') ||
+        (you === 'g' && cpu === 's')
+      ) return 'win';
+      return 'lose';
+    }
+
+    function winMsg(you, cpu) {
+      if (you === 's' && cpu === 'w') return '🐍 Snake drank the water!';
+      if (you === 'w' && cpu === 'g') return '💧 Water doused the gun!';
+      if (you === 'g' && cpu === 's') return '🔫 Gun shot the snake!';
+      if (cpu === 's' && you === 'w') return '🐍 CPU snake drank your water!';
+      if (cpu === 'w' && you === 'g') return '💧 CPU water doused your gun!';
+      if (cpu === 'g' && you === 's') return '🔫 CPU gun shot your snake!';
+      return '';
+    }
+
+    function animateIcon(id) {
+      const el = document.getElementById(id);
+      el.classList.remove('shake');
+      void el.offsetWidth;
+      el.classList.add('shake');
+    }
+
+    function play(choice) {
+      const cpu    = opts[Math.floor(Math.random() * 3)];
+      const result = getResult(choice, cpu);
+
+      const youEl  = document.getElementById('you-icon');
+      const cpuEl  = document.getElementById('cpu-icon');
+      const msgEl  = document.getElementById('result-msg');
+      const btns   = document.querySelectorAll('.choice-btn');
+
+      btns.forEach(b => b.classList.remove('selected'));
+      btns[opts.indexOf(choice)].classList.add('selected');
+
+      youEl.textContent = icons[choice];
+      cpuEl.textContent = '🤔';
+      cpuEl.className   = 'fighter-icon cpu-thinking';
+
+      msgEl.className   = 'result-msg waiting';
+      msgEl.textContent = 'CPU is choosing...';
+
+      setTimeout(() => {
+        cpuEl.textContent = icons[cpu];
+        cpuEl.className   = 'fighter-icon';
+
+        animateIcon('you-icon');
+        animateIcon('cpu-icon');
+
+        if (result === 'win') {
+          scores.you++;
+          document.getElementById('you-score').textContent = scores.you;
+          msgEl.className   = 'result-msg win';
+          msgEl.textContent = '🎉 তুমি জিতেছ! ' + winMsg(choice, cpu);
+        } else if (result === 'lose') {
+          scores.cpu++;
+          document.getElementById('cpu-score').textContent = scores.cpu;
+          msgEl.className   = 'result-msg lose';
+          msgEl.textContent = '😬 তুমি হেরেছ! ' + winMsg(choice, cpu);
+        } else {
+          scores.draw++;
+          document.getElementById('draw-score').textContent = scores.draw;
+          msgEl.className   = 'result-msg draw';
+          msgEl.textContent = '🤝 Draw! দুজনেই ' + names[choice] + ' বেছেছ!';
+        }
+      }, 600);
+    }
+  </script>
+</body>
+</html>
