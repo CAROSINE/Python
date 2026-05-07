@@ -5,4 +5,4 @@ while (line):
     print(line)
     line = f.readline()
 
-f.close()
+f.close() 
