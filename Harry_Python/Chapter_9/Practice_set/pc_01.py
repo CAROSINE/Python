@@ -6,4 +6,4 @@ if("win" in content):
 else:
     print("No, win is not present in the file ")
 
-f.close()
+f.close() 
