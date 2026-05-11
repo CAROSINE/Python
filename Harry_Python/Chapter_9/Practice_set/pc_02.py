@@ -1,5 +1,5 @@
 import random
-
+ 
 def game():
     rand_num = random.randint(1, 100)
     user_input = None
