@@ -1,5 +1,5 @@
 import random
-
+ 
 def game():
     print("You are playing the game..")
     score = random.radint(1, 62)
