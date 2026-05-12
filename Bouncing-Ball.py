@@ -6,7 +6,7 @@ import random
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
-def bouncing_ball():
+def bouncing_ball(): 
     width = 40
     height = 10
     balls = [ '🏀', '🏐', '🎱', '⚾', '🥎', '🏈', '🏉', '🎾', '🥏']  # 10 different balls!
@@ -14,7 +14,7 @@ def bouncing_ball():
     x = random.randint(1, width-1)
     y = random.randint(1, height-1)
     dx = random.choice([-1, 1])
-    dy = random.choice([-1, 1])
+    dy = random.choice([-1, 1]) 
     
     try:
         while True:
