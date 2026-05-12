@@ -21,7 +21,7 @@ def generate_table(n: int) -> str:
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(table)
 
-    return file_path
+    return file_path 
 
 
 if __name__ == "__main__":
