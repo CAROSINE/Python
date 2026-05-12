@@ -5,6 +5,7 @@ def reverse_mash(word1, word2):
     # Take the first half of word2 and reverse it
     half2 = word2[:len(word2)//2][::-1]
     
+    
     # Combine and clean up
     new_word = (half1 + half2).capitalize()
     return new_word
