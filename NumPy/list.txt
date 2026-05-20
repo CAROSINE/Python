@@ -1,0 +1,6 @@
+Array- np.array(), np.zeros(), np.ones(), np.arrange
+Shape,Reshape,flatten- Size of data
+Indexing and Slicing- part of array
+Math operations- add, multiply, dot product, mean,std
+Broadcasting- short array to brought array
+Mini project- Create simple neural layer using matrix 
