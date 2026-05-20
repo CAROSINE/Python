@@ -1,0 +1,5 @@
+Tensor, autograd বোঝা
+Neural network layer, activation function
+Backpropagation ও optimizer
+CNN দিয়ে image classification
+Mini project: MNIST digit recognizer বানাও
