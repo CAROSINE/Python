@@ -1,0 +1,6 @@
+DataFrame ও Series — table-এর মতো data রাখা
+CSV পড়া, filter করা, sort করা
+Missing values handle করা — dropna, fillna
+groupby, merge, pivot — data একত্র করা
+Matplotlib দিয়ে সহজ chart বানানো
+Mini project: Real dataset (যেমন Titanic) analyze করো
