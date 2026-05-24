@@ -13,5 +13,3 @@ Ahin  = Employee()
 Ahin.greet() 
 Ahin.getInfo()
 # self ia parameter
-
-# self fact/argument
