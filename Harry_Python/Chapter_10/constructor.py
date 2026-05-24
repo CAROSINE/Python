@@ -10,6 +10,6 @@ class Employee:
     def greet(self):   # another method
         print("Good Morning✨")
 
-Ahin  = Employee()
+Ahin  = Employee() 
 Ahin.greet()
 Ahin.getInfo()

@@ -1,8 +1,7 @@
 class Employee:
     language = "Python" # class attribute
     salary = 300000
-
-Ahin  = Employee()
+ 
 Ahin.language= "JavaScript" # it's an instance attribute
 print(Ahin.salary, Ahin.language)
 

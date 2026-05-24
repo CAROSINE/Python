@@ -3,7 +3,7 @@ class Employee:
     language = "Python" # class attribute
     salary = 300000
 
-Ahin  = Employee()
+Ahin  = Employee() 
 Ahin.name = "Mahin" # object attribute
 print(Ahin.name, Ahin.salary, Ahin.language)
 

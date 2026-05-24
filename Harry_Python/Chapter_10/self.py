@@ -12,4 +12,4 @@ Ahin.getInfo() # after this line , this line appears "Employee.getInfo()"
                # so we wrote getInfo(self)
 
 
-# Create method
+# Create method 

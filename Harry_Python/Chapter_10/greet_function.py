@@ -10,7 +10,7 @@ class Employee:
         print("Good Morning✨")
 
 Ahin  = Employee()
-Ahin.greet()
+Ahin.greet() 
 Ahin.getInfo()
 # self ia parameter
 
