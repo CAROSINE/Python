@@ -9,7 +9,4 @@ Ahin  = Employee()
 Ahin.language= "JavaScript" # it's an instance attribute
 
 Ahin.getInfo() # after this line , this line appears "Employee.getInfo()"
-               # so we wrote getInfo(self)
-
-
-# Create method 
+               # so we wrote getInfo(self) 
