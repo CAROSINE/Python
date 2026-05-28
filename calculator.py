@@ -12,7 +12,7 @@ class Calculator:
         return self.a - self.b
 
 # object create
-calc = Calculator(10, 5)
+calc = Calculator(10, 5) 
 
-print("Addition:", calc.add())
-print("Subtraction:", calc.subtract())
+print("Addition:", calc.add()) 
+print("Subtraction:", calc.subtract()) 
