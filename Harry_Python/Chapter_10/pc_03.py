@@ -3,6 +3,7 @@ class Demo:
 
 o = Demo()  # object
 print(o.a)
+
 o.a = 0   # condiotion from question 
 
 print(o.a)
