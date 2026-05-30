@@ -1,5 +1,5 @@
 class Demo:
-    a = 4
+    a = 4 
 
 o = Demo()  # object
 print(o.a)
