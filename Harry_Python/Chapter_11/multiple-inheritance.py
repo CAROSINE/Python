@@ -1,14 +1,17 @@
 class Employee:
     company = "Google"
-    
+    name = "Mira"
     def show(self):
         print(f"Name: {self.name}, Age: {self.age}, Salary: {self.salary}")
 
 
+class Coder:
+    language = "Python"
+    def printLang(self):
+        print(f"The programming language is {self.language}")
 
 
-
-class Programmer:
+class Programmer(Employee, Coder):
     company = "Microsoft"
 
     def show(self):
