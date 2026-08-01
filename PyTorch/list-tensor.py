@@ -11,7 +11,7 @@ print("y:", y)
 z = x + y
 print("x + y= ", z)
 
-#Matrix/tensor shape
+#Matrix tensor shape
 a = torch.rand(2, 3) # random 2X3 tensor
 print(a)
 print("Shape: ", a.shape)
