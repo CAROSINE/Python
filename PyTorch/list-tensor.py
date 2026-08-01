@@ -17,4 +17,4 @@ print(a)
 print("Shape: ", a.shape)
 
 # GPU check
-print("CUDA available?", torch.cuda.is_available()) 
+print("CUDA available?", torch.cuda.is_available())
